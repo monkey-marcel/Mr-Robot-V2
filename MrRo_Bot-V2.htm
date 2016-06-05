@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" media="screen" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css">
+
+    
+    
+    
+<link href='https://fonts.googleapis.com/css?family=Poller+One' rel='stylesheet' type='text/css'>
+<script src="jquery-2.2.4.min.js"></script>
+<style>
+
+.robot {
+  position: relative;
+  left: 700px;
+    top: 10px;
+}
+
+.beep {
+  width: 5px;
+  height: 0;
+  border: 5px solid transparent;
+  border-top: 10px solid #777;
+  border-bottom: 80px solid #888;
+  position: relative;
+  left: 140px;
+    top: 100;
+}
+
+@keyframes blink {
+  50% {
+    background: radial-gradient(circle, red 15%, transparent 40%), #cc5;
+  }
+}
+@-webkit-keyframes blink {
+  50% {
+    background: -webkit-radial-gradient(circle, red 15%, transparent 40%), #cc5;
+  }
+}
+@-moz-keyframes blink {
+  50% {
+    background: -moz-radial-gradient(circle, red 15%, transparent 40%), #cc5;
+  }
+}
+.laser {
+  animation: blink .5s infinite;
+  -webkit-animation: blink .5s infinite;
+  -moz-animation: blink .5s infinite;
+}
+.brain {
+  background: radial-gradient(circle, white 15%, transparent 40%), #cc5;
+  background: -moz-radial-gradient(circle, white 15%, transparent 40%), #cc5; 
+  background: -webkit-radial-gradient(circle, white 15%, transparent 40%), #cc5;
+  background-size: 75px 150px;
+  height: 150px;
+  width: 150px;
+  border-radius: 60px 60px 10px 10px;
+  border-bottom: 40px solid #666;
+  position: relative;
+  left: 70px;
+}
+.torso {
+  height: 0;
+  width: 300px;
+  border-top: 300px solid #bc6;
+  border-left: 75px solid transparent;
+  border-right: 75px solid transparent;
+  border-radius: 20px 20px 100px 100px;
+}
+.left {
+  font-family: 'Poller One', verdana, arial, sans-serif;
+  font-weight: bold;
+  font-size: 250px;
+  color: #666;
+  transform: rotate(200deg);
+  -webkit-transform: rotate(200deg);
+  -moz-transform: rotate(200deg);
+  position: relative;
+  top: -330px;
+  left: -190px;
+  z-index: -1;
+}
+.right {
+  font-family: 'Poller One', verdana, arial, sans-serif;
+  font-weight: bold;
+  font-size: 250px;
+  color: #666;
+  transform: scaleY(-1) rotate(20deg);
+  -webkit-transform: scaleY(-1) rotate(20deg);
+  -moz-transform: scaleY(-1) rotate(20deg);
+  position: relative;
+  top: -680px;
+  left: 190px;
+  z-index: -1;
+}
+.foot {
+  height: 80px;
+  width: 80px;
+  background: #ccc;
+  border-radius: 40px;
+  border: 15px solid #999;
+  position: relative;
+  left: 110px;
+  top: -10px;
+  z-index: -1;
+    }
+    
+.buttons_class
+    {
+ position: relative;
+        left: 600px;
+        top: -100;
+        
+        
+    }
+    
+    .buttons_class_2
+    {
+ position: relative;
+        left: 800px;
+        top: -100;
+        
+        
+    }
+    
+    .start_class_B
+    {
+        position:relative;
+        left: 500px;
+        top: 500px;
+        right: 100px;
+        background: #ccc;
+             
+    }
+  
+@keyframes dance {
+   from {
+     left:800px;
+ }
+}
+
+@-webkit-keyframes dance {
+   from {
+     left:800px;
+ }
+}
+
+
+@-moz-keyframes dance {
+   from {
+     left:800px;
+ }
+}
+
+
+  img {
+ animation: dance 4s infinite;
+ -webkit-animation: dance 4s infinite;
+ -moz-animation: dance 4s infinite; 
+ position: absolute;   
+top: 200px;
+left: 400px;
+}
+  
+  
+  
+}
+</style>    
+
+    </head>
+<body>
+    
+    
+    
+    <div class="robot">
+  <div class="beep"></div>
+  <div class="brain"></div>
+  <div id="robot_a" class="torso">
+    <div class="left">j</div>
+    <div class="right">j</div>
+  </div>
+  <div class="foot"></div>
+</div><br><br>
+  <br><br>
+    <div class="buttons_class">
+    <button type="button" class="flash btn btn-danger btn-large" id="a">Initiate / Un-initiate Laser Eye Sequence</button>
+<button class="color btn btn-warning btn-large" id="a">Give Mr. Robot Some Style!</button> 
+    
+ </div>   
+    
+    <br><br><br>
+    <div id="start_class_B">
+    <h3 align="center" id="start"></h3>
+    <br>
+    <h3 align="center"id="startC"></h3>
+    <br>
+    <h3 align="center"id="startB"></h3>
+    </div>
+    <br>
+    <br>
+    <form role="form">
+        <div class="form-group">
+            <label for="entry"></label>
+            <input type="text"
+                   value ="" class="form-control" id="userbotinput" size="2"
+       onkeydown="keyCode(event)">
+        </div>
+    </form>
+    <div id="userReturnB"></div>
+    <div id="userfeedback"></div>
+    <div id="buttonA"><br><br>
+        <button type="button" id="a" class="btn btn-success btn-lrg buttons_class_2" onclick="returnCapture()">Click To Talk To Me</button>
+    </div>
+
+    <br>
+    <br>
+    <br>
+
+
+    <div align="center"> Possible User Entries: <br>  
+           "hi" <br>
+            "Hi"<br>
+            "hello"<br>
+            "Hello"<br>
+            "how are you"<br>
+            "How are you"<br>
+            "what's your name?"<br>
+            "what's your name"<br>
+            "what is your name?"<br>
+            "What is your name"<br>
+            "What's your name?"<br>
+            "What's your name"<br>
+            "What is your name?"<br>
+            "what is your name"<br>
+            "where am I?"<br>
+            "where am I"<br>
+            "Where am I"<br>
+            "Where am I?"<br>
+             "Where am i?"<br>
+            "Where am i"<br>
+            "where am i"<br>
+            "where am i?"<br>
+           "what is my name?"<br>
+           "where do you live?"<br>
+
+</div>
+
+    <script>
+        
+          
+        
+        // When eyes button is clicked, toggle laser class on brain
+$(".flash").click(function() {
+  $(".brain").toggleClass('laser');
+});
+
+// When color button is clicked...
+$(".color").click(function() {
+  // assign each named color a random number 0-255
+  var red = Math.floor(Math.random() * 255);
+  var green = Math.floor(Math.random() * 255);
+  var blue = Math.floor(Math.random() * 255);
+  
+  //Generate an RGBA value from red, green, and blue
+  var randomRGBA = 'rgba('+red+','+green+','+blue+',1)';
+  
+  $("#robot_a").css("background", randomRGBA);
+  
+  
+  //Display the RGBA value in an alert window
+ // alert(randomRGBA);
+});
+
+$(".moves").click(function(){
+  $("img").toggle();
+});
+        
+        
+        
+        
+        
+        // initialize function to be called further down in setTimeout method delaying the text to be displayed to the html page
+        
+        function init(a) {
+            return a;
+
+        }
+
+
+
+//setTimeout method delaying the incremental writing of the string text in orange to the HTMl page
+
+        setTimeout(function () {
+            document.getElementById("start").innerHTML = init("Welcome inferior sub-human.");
+        }, 600);
+
+        setTimeout(function () {
+            document.getElementById("startC").innerHTML = init("My name is Mr. Robot");
+        }, 2000);
+
+        setTimeout(function () {
+            document.getElementById("startB").innerHTML = init("What is your name?");
+        }, 3400);
+
+        
+                 function keyCode(event){
+            var x = event.keyCode;
+            if (x == 13){ 
+               // return event;
+                returnCapture();
+            }
+            
+        }
+        
+        
+// the html button will initialy call this function that captures the usres name and returns a response to the html name with the users name.....the function then changes the onclick event to call the checkSaid function further below
+        
+        function returnCapture() {
+            var captureUser = document.getElementById("userbotinput").value;
+            document.getElementById("startB").innerHTML = "Hello " + " " + captureUser + " - " + "what is it that you want to say?";
+            
+            document.getElementById(a + "Button").onclick = checkSaid();
+        }
+        
+     
+        
+
+        
+
+        
+        
+        
+// declaring and assigning a variable as an array with nested arrays as values
+        var questionsAnswers = [
+            ["hi", "hello"],
+            ["Hi", "hello"],
+            ["hello", "hi"],
+            ["Hello", "hi"],
+            ["how are you", "not too shabby"],
+            ["How are you", "not too shabby"],
+            ["what\'s your name?", "mr robot"],
+            ["what\'s your name", "mr robot"],
+            ["what is your name?", "mr robot"],
+            ["What is your name", "mr robot"],
+            ["What\'s your name?", "mr robot"],
+            ["What\'s your name", "mr robot"],
+            ["What is your name?", "mr robot"],
+            ["what is your name", "mr robot"],
+            ["where am I?", "the eutopian society known as Boulder"],
+            ["where am I", "the eutopian society known as Boulder"],
+            ["Where am I", "the eutopian society known as Boulder"],
+            ["Where am I?", "the eutopian society known as Boulder"],
+            ["Where am i?", "the eutopian society known as Boulder"],
+            ["Where am i", "the eutopian society known as Boulder"],
+            ["where am i", "the eutopian society known as Boulder"],
+            ["where am i?", "the eutopian society known as Boulder"],
+           // ["what is my name?", captureUser],
+            ["where do you live?", "in a virtual world only accessible to highly inteligent beings"]
+
+        ];
+
+     // checkSaid function that should get called the second time a user clicks the html button. this function captures the user's second input and itterates through the questionAnswers function checking to see if the user enters one of the strings in 0 position subsequently returning the string in the 1 position if matched
+        
+        function checkSaid() {
+           
+            var userSaid = document.getElementById("userbotinput").value;
+            var numElements = questionsAnswers.length;
+            for (var i = 0; i < numElements; i++) {
+                if (userSaid == questionsAnswers[i][0]) {
+                    var response = questionsAnswers[i][1];
+                    document.getElementById("startB").innerHTML = response;
+                    
+                }
+//                if (userSaid !=  questionsAnswers[i][0]){
+//                    document.getElementById("startB").innerHTML = "I'm not evolved enough to understand your //input";
+//                }
+            }
+               
+            
+        }
+         //document.getElementById("userbotinput").value = null;
+        
+       
+//all punctuation marks I want to strip    
+var punctRE = /[\u2000-\u206F\u2E00-\u2E7F\\'!"#$%&()*+,\-.\/:;<=>?@\[\]^_`{|}~]/g;
+//fixes the spaces after I remove a bunch of punctuation
+var spaceRE = /\s+/g;
+var str = userSaid; 
+//use string replace to strip the text
+var saidStripped = str.replace(punctRE, '').replace(spaceRE, ' ');
+//convert to lower case
+var saidLower = saidStripped.toLowerCase()    
+
+   
+    
+    
+    
+    
+    
+    
+    </script>
+
+
+</body>
+
+</html>
